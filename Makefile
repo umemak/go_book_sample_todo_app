@@ -3,7 +3,7 @@
 
 DOCKER_TAG := latest
 build:
-	doker build -t umemak/gotodo:${DOCKER_TAG} \
+	docker build -t umemak/gotodo:${DOCKER_TAG} \
 		--target deploy ./
 
 build_local:
