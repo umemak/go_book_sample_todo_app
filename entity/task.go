@@ -6,7 +6,7 @@ type TaskID int64
 type TaskStatus string
 
 const (
-	TaskStatusDoto  TaskStatus = "todo"
+	TaskStatusTodo  TaskStatus = "todo"
 	TaskStatusDoing TaskStatus = "doing"
 	TaskStatusDone  TaskStatus = "done"
 )
