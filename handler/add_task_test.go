@@ -59,7 +59,7 @@ func TestAddTask(t *testing.T) {
 				Service:   moq,
 				Validator: validator.New(),
 			}
-			sut.ServerHTTP(w, r)
+			sut.ServeHTTP(w, r)
 			resp := w.Result()
 			testutil.AssertResponse(t,
 				resp, tt.want.status, testutil.LoadFile(t, tt.want.rspFile),
