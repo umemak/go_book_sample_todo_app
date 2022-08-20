@@ -38,7 +38,7 @@ type Beginner interface {
 }
 
 type Preparer interface {
-	PrepareContext(ctx context.Context, query string) (*sqlx.Stmt, error)
+	PreparexContext(ctx context.Context, query string) (*sqlx.Stmt, error)
 }
 
 type Execer interface {
@@ -48,18 +48,18 @@ type Execer interface {
 
 type Queryer interface {
 	Preparer
-	QueryContext(ctx context.Context, query string, args ...any) (*sqlx.Rows, error)
-	QueryRowxxContext(ctx context.Context, query string, args ...any) *sqlx.Row
+	QueryxContext(ctx context.Context, query string, args ...any) (*sqlx.Rows, error)
+	QueryRowxContext(ctx context.Context, query string, args ...any) *sqlx.Row
 	GetContext(ctx context.Context, dest any, query string, args ...any) error
 	SelectContext(ctx context.Context, dest any, query string, args ...any) error
 }
 
 var (
 	_ Beginner = (*sqlx.DB)(nil)
-	// _ Preparer = (*sqlx.DB)(nil)	//TODO
-	// _ Queryer  = (*sqlx.DB)(nil)	//TODO
-	_ Execer = (*sqlx.DB)(nil)
-	_ Execer = (*sqlx.Tx)(nil)
+	_ Preparer = (*sqlx.DB)(nil)
+	_ Queryer  = (*sqlx.DB)(nil)
+	_ Execer   = (*sqlx.DB)(nil)
+	_ Execer   = (*sqlx.Tx)(nil)
 )
 
 type Repository struct {
