@@ -1,4 +1,4 @@
-.PHONY: help build build-local up down logs ps test migrate dry-migrate
+.PHONY: help build build-local up down logs ps test migrate dry-migrate generate
 .DEFAULT_GOAL := help
 
 DOCKER_TAG := latest
@@ -29,6 +29,9 @@ migrate:
 
 dry-migrate:
 	mysqldef -u todo -p todo -h 127.0.0.1 -P 33306 todo --dry-run < ./_tools/mysql/schema.sql
+
+generate:
+	go generate ./...
 
 help:
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | \

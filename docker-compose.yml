@@ -28,7 +28,7 @@ services:
       MYSQL_DATABASE: todo
     volumes:
       - todo-db-data:/var/lib/mysql
-      - $PWD/_toold/mysql/conf.d:/etc/mysql/conf.d:cached
+      - $PWD/_tools/mysql/conf.d:/etc/mysql/conf.d:cached
     ports:
       - "33306:3306"
 volumes:
